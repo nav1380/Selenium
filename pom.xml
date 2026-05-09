@@ -16,8 +16,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.seleniumhq.Tests.selenium</groupId>
-            <artifactId>Tests.selenium-java</artifactId>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
             <version>4.43.0</version>
             <scope>compile</scope>
         </dependency>
