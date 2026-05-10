@@ -14,14 +14,14 @@ public class baseTest {
 
     @BeforeClass
     public void getSetup() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(50));
         driver = new ChromeDriver();
-        driver.get("https://datatables.net/examples/basic_init/multiple_tables.html");
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.get("https://play1.automationcamp.ir/index.html");
     }
 
-//    @AfterClass
-//    public void exitSetup() {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void exitSetup() {
+        driver.quit();
+    }
 
 }
