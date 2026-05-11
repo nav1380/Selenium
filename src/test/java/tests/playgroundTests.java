@@ -77,7 +77,15 @@ public class playgroundTests extends baseTest {
 
         select.selectByIndex(0);
         Assert.assertTrue(listboxValues.getFirst().isSelected());
+    }
 
+    @Test (priority = 5)
+    public void typeInTextarea() {
+        WebElement textarea = driver.findElement(By.id("notes"));
+        String expected = "this is the text";
+
+        textarea.sendKeys(expected);
+        Assert.assertEquals(driver.findElement(By.id("area_notes_validate")).getText(), expected);
     }
 
 
