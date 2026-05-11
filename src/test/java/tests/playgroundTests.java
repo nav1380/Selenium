@@ -2,6 +2,7 @@ package tests;
 
 import base.baseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -88,5 +89,40 @@ public class playgroundTests extends baseTest {
         Assert.assertEquals(driver.findElement(By.id("area_notes_validate")).getText(), expected);
     }
 
+    @Test (priority = 6)
+    public void readOnlyTextbox() {
+        WebElement readOnly = driver.findElement(By.cssSelector("[placeholder='Common Sense']"));
+
+        Assert.assertTrue(readOnly.isEnabled());
+        Assert.assertEquals("Common Sense", readOnly.getAttribute("placeholder"));
+    }
+
+    @Test (priority = 7)
+    public void clickGermanCheckbox() {
+        driver.findElement(By.className("custom-control-label")).click();
+        WebElement validateText = driver.findElement(By.id("german_validate"));
+
+        Assert.assertTrue(validateText.getText().equals("true"));
+        driver.findElement(By.className("custom-control-label")).click();
+        Assert.assertTrue(validateText.getText().equals("false"));
+    }
+
+    @Test (priority = 8)
+    public void rangeBar() {
+        WebElement range = driver.findElement(By.id("fluency"));
+
+        range.sendKeys(Keys.ARROW_LEFT, Keys.ARROW_LEFT);
+
+        WebElement validateRange = driver.findElement(By.cssSelector("[id='fluency_validate']"));
+        Assert.assertEquals("1", validateRange.getText());
+    }
+
+    @Test (priority = 9)
+    public void disabledTextbox() {
+        WebElement disabled = driver.findElement(By.id("salary"));
+
+        Assert.assertFalse(disabled.isEnabled());
+        Assert.assertTrue(disabled.getAttribute("placeholder").equals("You should not provide this"));
+    }
 
 }
