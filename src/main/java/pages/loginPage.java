@@ -3,14 +3,14 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class loginPage {
     WebDriver driver;
 
     By username = By.id("user-name");
     By password = By.id("password");
     By loginBtn = By.id("login-button");
 
-    public LoginPage(WebDriver driver) {
+    public loginPage(WebDriver driver) {
         this.driver = driver;
     }
 
