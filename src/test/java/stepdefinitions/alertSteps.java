@@ -34,10 +34,7 @@ public class alertSteps {
             case "alert":
                 driver.findElement(By.xpath("//button[text()='Click for JS Alert']")).click();
                 break;
-            case "confirm":
-                driver.findElement(By.xpath("//button[text()='Click for JS Confirm']")).click();
-                break;
-            case "confirmCancel":
+            case "confirm", "confirmCancel":
                 driver.findElement(By.xpath("//button[text()='Click for JS Confirm']")).click();
                 break;
             case "prompt":

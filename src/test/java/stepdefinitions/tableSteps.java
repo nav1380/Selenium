@@ -25,7 +25,6 @@ public class tableSteps {
 
     @When("user checks that the tables are visible")
     public void userChecksTables() {
-        driver = Hooks.driver;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement table = driver.findElement(By.cssSelector("table thead tr"));
