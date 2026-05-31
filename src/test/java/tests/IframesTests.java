@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.IframesPage;
+import utils.ConfigReader;
 
 import java.time.Duration;
 
@@ -14,6 +15,8 @@ public class IframesTests extends baseTestIsolation {
     @Test
     public void IFramesTest() {
         IframesPage iframes = new IframesPage(driver);
+        System.out.println(ConfigReader.getBooleanProperty("headless"));
+        System.out.println(ConfigReader.getBooleanProperty("headless").getClass());
 
         iframes.switchToIFrame("frame1");
         iframes.clickTheClickMeButton("click_me_1");
