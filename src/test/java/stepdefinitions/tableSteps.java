@@ -16,17 +16,17 @@ import java.util.List;
 public class tableSteps {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     @Given("user is on the dataTables page")
     public void userOnDataTablesPage() {
         driver = Hooks.driver;
+        wait = Hooks.wait;
         driver.get("https://datatables.net/");
     }
 
     @When("user checks that the tables are visible")
     public void userChecksTables() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         WebElement table = driver.findElement(By.cssSelector("table thead tr"));
         wait.until(ExpectedConditions.visibilityOf(table));
 

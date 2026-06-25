@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ConfigReader;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
@@ -16,17 +18,12 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
-
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver = DriverFactory.initDriver(ConfigReader.getBrowser());
+        wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigReader.getTimeout()));
     }
 
     @After
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverFactory.quitDriver();
     }
 }
